@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="CNC_Robot_SIM/CNC_Robot_SIM.vcxproj" />
+</Solution>
