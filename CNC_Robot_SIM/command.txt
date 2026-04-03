@@ -1,0 +1,245 @@
+; =============================================
+; CNC SIMULATOR DEMO - command.txt
+; Programs: 1=Star, 2=Spiral, 3=Gear, 4=Text "CNC"
+; =============================================
+
+; -----------------------------------------------
+; PROGRAM 1 - 5-Point Star
+; -----------------------------------------------
+G00 X0 Y150 F200
+G01 X35.267 Y-48.541 F80
+G01 X-142.658 Y97.553
+G01 X142.658 Y97.553
+G01 X-35.267 Y-48.541
+G01 X0 Y150
+
+; Inner star (smaller, reversed)
+G00 X0 Y57
+G01 X13.401 Y-18.447
+G01 X-54.208 Y37.082
+G01 X54.208 Y37.082
+G01 X-13.401 Y-18.447
+G01 X0 Y57
+
+NEW
+
+; -----------------------------------------------
+; PROGRAM 2 - Archimedean Spiral (via arc segments)
+; -----------------------------------------------
+G00 X10 Y0 F200
+G01 X14.142 Y14.142 F60
+G01 X0 Y20
+G01 X-21.213 Y21.213
+G01 X-30 Y0
+G01 X-31.820 Y-31.820
+G01 X0 Y-50
+G01 X53.033 Y-53.033
+G01 X70 Y0
+G01 X63.640 Y63.640
+G01 X0 Y90
+G01 X-84.853 Y84.853
+G01 X-110 Y0
+G01 X-91.924 Y-91.924
+G01 X0 Y-130
+G01 X127.279 Y-127.279
+G01 X160 Y0
+G01 X117.851 Y117.851
+G01 X0 Y170
+
+; Spiral back inward (offset path)
+G00 X0 Y0 F200
+
+NEW
+
+; -----------------------------------------------
+; PROGRAM 3 - Circle + Crosshair (Bullseye)
+; -----------------------------------------------
+
+; Outer circle
+G00 X120 Y0 F200
+G02 X120 Y0 I-120 J0 F80
+
+; Middle circle
+G00 X80 Y0 F200
+G02 X80 Y0 I-80 J0 F80
+
+; Inner circle
+G00 X40 Y0 F200
+G02 X40 Y0 I-40 J0 F80
+
+; Tiny center dot circle
+G00 X12 Y0 F200
+G02 X12 Y0 I-12 J0 F80
+
+; Horizontal crosshair
+G00 X-130 Y0 F200
+G01 X130 Y0 F80
+
+; Vertical crosshair
+G00 X0 Y-130 F200
+G01 X0 Y130 F80
+
+; Diagonal tick marks at 45 deg
+G00 X100 Y100 F200
+G01 X84 Y84 F80
+G00 X-100 Y100 F200
+G01 X-84 Y84 F80
+G00 X100 Y-100 F200
+G01 X84 Y-84 F80
+G00 X-100 Y-100 F200
+G01 X-84 Y-84 F80
+
+NEW
+
+; -----------------------------------------------
+; PROGRAM 4 - Gear Shape (12 teeth)
+; -----------------------------------------------
+G00 X0 Y0 F200
+
+; Base circle with rectangular teeth cut in via lines
+; 12 teeth, alternating inner (r=70) outer (r=100) at 30deg steps
+G00 X0 Y100 F200
+G01 X18 Y97 F70
+G01 X18 Y72
+G01 X35 Y60
+G01 X60 Y68
+G01 X68 Y50
+G01 X50 Y35
+G01 X72 Y18
+G01 X97 Y18
+G01 X100 Y0
+G01 X97 Y-18
+G01 X72 Y-18
+G01 X50 Y-35
+G01 X68 Y-50
+G01 X60 Y-68
+G01 X35 Y-60
+G01 X18 Y-72
+G01 X18 Y-97
+G01 X0 Y-100
+G01 X-18 Y-97
+G01 X-18 Y-72
+G01 X-35 Y-60
+G01 X-60 Y-68
+G01 X-68 Y-50
+G01 X-50 Y-35
+G01 X-72 Y-18
+G01 X-97 Y-18
+G01 X-100 Y0
+G01 X-97 Y18
+G01 X-72 Y18
+G01 X-50 Y35
+G01 X-68 Y50
+G01 X-60 Y68
+G01 X-35 Y60
+G01 X-18 Y72
+G01 X-18 Y97
+G01 X0 Y100
+
+; Center bore hole
+G00 X25 Y0 F200
+G02 X25 Y0 I-25 J0 F70
+
+NEW
+
+; -----------------------------------------------
+; PROGRAM 5 - Lissajous Curve (3:2 ratio approx)
+; -----------------------------------------------
+G00 X150 Y0 F200
+G01 X149 Y31 F50
+G01 X144 Y59
+G01 X136 Y83
+G01 X125 Y100
+G01 X111 Y107
+G01 X96 Y103
+G01 X80 Y88
+G01 X64 Y63
+G01 X49 Y31
+G01 X35 Y-5
+G01 X22 Y-41
+G01 X10 Y-72
+G01 X0 Y-95
+G01 X-9 Y-107
+G01 X-18 Y-106
+G01 X-26 Y-93
+G01 X-33 Y-70
+G01 X-38 Y-40
+G01 X-40 Y-7
+G01 X-40 Y27
+G01 X-38 Y58
+G01 X-33 Y83
+G01 X-26 Y100
+G01 X-18 Y106
+G01 X-9 Y100
+G01 X0 Y83
+G01 X10 Y56
+G01 X22 Y23
+G01 X35 Y-13
+G01 X49 Y-49
+G01 X64 Y-80
+G01 X80 Y-101
+G01 X96 Y-110
+G01 X111 Y-105
+G01 X125 Y-88
+G01 X136 Y-61
+G01 X144 Y-28
+G01 X149 Y9
+G01 X150 Y0
+
+NEW
+
+; -----------------------------------------------
+; PROGRAM 6 - Diamond / Faceted Gem
+; -----------------------------------------------
+
+; Outer girdle
+G00 X0 Y120 F200
+G01 X70 Y70 F70
+G01 X120 Y0
+G01 X70 Y-70
+G01 X0 Y-120
+G01 X-70 Y-70
+G01 X-120 Y0
+G01 X-70 Y70
+G01 X0 Y120
+
+; Upper facets (crown)
+G00 X0 Y120 F200
+G01 X0 Y40
+G01 X70 Y70
+G00 X0 Y40 F200
+G01 X120 Y0
+G00 X0 Y40 F200
+G01 X70 Y-70
+G00 X0 Y40 F200
+G01 X0 Y-120
+G00 X0 Y40 F200
+G01 X-70 Y-70
+G00 X0 Y40 F200
+G01 X-120 Y0
+G00 X0 Y40 F200
+G01 X-70 Y70
+G00 X0 Y40 F200
+G01 X0 Y120
+
+; Lower facets (pavilion) - meet at culet
+G00 X0 Y120 F200
+G01 X35 Y35
+G01 X0 Y0
+G00 X120 Y0 F200
+G01 X35 Y35
+G00 X120 Y0 F200
+G01 X35 Y-35
+G01 X0 Y0
+G00 X0 Y-120 F200
+G01 X35 Y-35
+G00 X0 Y-120 F200
+G01 X-35 Y-35
+G01 X0 Y0
+G00 X-120 Y0 F200
+G01 X-35 Y-35
+G00 X-120 Y0 F200
+G01 X-35 Y35
+G01 X0 Y0
+G00 X0 Y120 F200
+G01 X-35 Y35

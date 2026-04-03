@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="CNC_Robot_SIM/CNC_Robot_SIM.vcxproj" />
+  <Project Path="CNC_Robot_SIM/CNC_Robot_SIM.vcxproj" Id="e40a8cb0-5581-4a7b-80bc-0b07937c88a3" />
 </Solution>
